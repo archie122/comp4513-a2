@@ -2,7 +2,7 @@
   "name": "a2",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://archie122.github.io/comp4513-a2/a2/",
+  "homepage": "https://archie122.github.io/comp4513-a2/",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
