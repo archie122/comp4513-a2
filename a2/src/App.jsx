@@ -15,8 +15,8 @@ function App() {
     <main>
       <Routes>
         <Route path='/comp4513-a2' element={<Login />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='/temp' element={<Layout1 />} />
+        {/* <Route path='/home' element={<Home />} /> */}
+        <Route path='/home' element={<Layout1 />} />
         {/* <Route path='/comp4513-a2' element={<Home />} /> TESTING*/}
       </Routes>
     </main>
