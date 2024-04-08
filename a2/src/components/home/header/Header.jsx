@@ -1,12 +1,27 @@
 import React from 'react';
+import { Layout } from 'antd';
+import Navigation from './navigation/Navigation.jsx'
+import SeasonDropdown from './dropdown/SeasonDropdown.jsx'
 
-function Standings() {
+const { Header } = Layout;
+
+const SiteHeader = () => {
   return (
-    <div>
-      <h2>Standings</h2>
-      {/* standing stuff */}
-    </div>
+    <Header
+      style={{
+        position: 'sticky',
+        top: 0,
+        zIndex: 1,
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+      }}
+    >
+      <div className="demo-logo" />
+      <SeasonDropdown/>
+      <Navigation/>
+    </Header>
   );
-}
+};
 
-export default Standings;
+export default SiteHeader;

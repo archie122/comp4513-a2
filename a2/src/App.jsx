@@ -9,13 +9,13 @@ import Home from './components/home/Home.jsx';
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <main className="bg-blue-500 text-white p-4">
+    <main>
       <Routes>
         <Route path='/comp4513-a2' element={<Login />} />
         <Route path='/home' element={<Home />} />
+        {/* <Route path='/comp4513-a2' element={<Home />} /> TESTING*/}
       </Routes>
     </main>
   )

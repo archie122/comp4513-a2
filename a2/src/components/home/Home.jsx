@@ -1,30 +1,120 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import { Link, Route } from 'react-router-dom';
-import Header from './header/Header.jsx'
-import Results from './results/Results.jsx';
-import Standings from './standings/Standings.jsx';
+import { Button, Space, Layout, theme  } from 'antd';
 
-function Home() {
-  return (
-    <div>
-      <h1>Home</h1>
-      <Header/>
-      <div>
-        <Link to="/comp4513-a2"><button>Logout</button></Link>
-        <Link to="/home/results"><button>Results</button></Link>
-        <Link to="/home/standings" >Standings</Link>
-      </div>
+import Navigation from './header/navigation/Navigation.jsx';
+import InfoDrawer from './drawer/Drawer.jsx';
 
-      {/* <div>
-        <Route path="/home/results">
-          <Results />
-        </Route>
-        <Route path="/home/standings">
-          <Standings />
-        </Route>
-      </div> */}
-    </div>
-  );
-}
+
+const { Content, Footer } = Layout;
+
+const Home = () => {
+    const {
+        token: { colorBgContainer, borderRadiusLG },
+    } = theme.useToken();
+
+    const [open, setOpen] = useState([false, false]);
+    const toggleDrawer = (idx, target) => {
+        setOpen((p) => {
+          p[idx] = target;
+          return [...p];
+        });
+    };
+
+    const circuitDrawerContent = (
+        <>
+            <Button type="primary">Add to favorites</Button>
+            <p>Name</p>
+            <p>Country</p>
+            <p>URL</p>
+        </>
+    );
+    const resultsDrawerContent = (
+        <>
+            <Button type="primary">Add to favorites</Button>
+            <p>Name</p>
+            <p>Country</p>
+            <p>URL</p>
+        </>
+    );
+    const standingsDrawerContent = (
+        <>
+            <Button type="primary">Add to favorites</Button>
+            <p>Name</p>
+            <p>Country</p>
+            <p>URL</p>
+        </>
+    );
+
+    return (
+        <Layout>
+            <Navigation />
+            <Layout>
+
+                <Space>
+                    <Button type="primary" onClick={() => toggleDrawer(0, true)}>
+                        Circuit
+                    </Button>
+                    <Button type="primary" onClick={() => toggleDrawer(1, true)}>
+                        Results
+                    </Button>
+                    <Button type="primary" onClick={() => toggleDrawer(2, true)}>
+                        Standings
+                    </Button>
+                </Space>
+
+                <InfoDrawer
+                    title="Circuit"
+                    content={circuitDrawerContent}
+                    open={open[0]}
+                    closeDrawer={() => toggleDrawer(0, false)}
+                />
+
+                <InfoDrawer
+                    title="Results"
+                    content={resultsDrawerContent}
+                    open={open[1]}
+                    closeDrawer={() => toggleDrawer(1, false)}
+                />
+                <InfoDrawer
+                    title="Standings"
+                    content={standingsDrawerContent}
+                    open={open[2]}
+                    closeDrawer={() => toggleDrawer(2, false)}
+                />
+
+
+
+
+
+                <Content
+                    style={{
+                        margin: 0,
+                    }}
+                >
+                    <div
+                        style={{
+                            padding: 24,
+                            minHeight: 360,
+                            background: colorBgContainer,
+                            borderRadius: borderRadiusLG,
+                        }}
+                    >
+                        content
+                    </div>
+                </Content>
+
+                <Footer
+                    style={{
+                        textAlign: 'center',
+                    }}
+                >
+                    Ant Design ©{new Date().getFullYear()} Created by Ant UED
+                </Footer>
+            </Layout>
+        </Layout>
+    );
+};
 
 export default Home;
