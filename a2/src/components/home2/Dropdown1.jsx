@@ -17,7 +17,7 @@ const Dropdown1 = (props) => {
       console.error('Error fetching seasons:', error);
       return;
     }
-    const sortedData = data.sort((a, b) => a.year - b.year);
+    const sortedData = data.sort((a, b) => a.year + b.year);
     setSeasons(sortedData);
   }
   

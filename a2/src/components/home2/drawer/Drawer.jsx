@@ -9,6 +9,7 @@ const InfoDrawer = ({ title, content, open, closeDrawer }) => {
       closable={true}
       onClose={closeDrawer}
       open={open}
+      width={1200}
     >
       {content}
     </Drawer>

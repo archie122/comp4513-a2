@@ -18,7 +18,7 @@ const Layout3 = (props) => {
           }}
         >
           
-          <MainContent update={props.update}/>
+          <MainContent update={props.update} getFav={props.getFav}/>
           
           {/* <Content2 /> */}
           
