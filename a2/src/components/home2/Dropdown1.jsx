@@ -1,7 +1,8 @@
-import { Dropdown, Button, Space, Menu, message } from 'antd';
+import { Dropdown, Button, Space, Menu, message, Select } from 'antd';
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import Supabase from '../../utility/f1-supabase.js'; //utility folder in src
 import { useEffect, useState } from 'react'; 
+const { Option } = Select;
 
 
 const Dropdown1 = (props) => {
@@ -18,36 +19,25 @@ const Dropdown1 = (props) => {
       console.error('Error fetching seasons:', error);
       return;
     }
-    setSeasons(data);
+    const sortedData = data.sort((a, b) => a.year - b.year);
+    setSeasons(sortedData);
   }
 
-  const handleMenuClick = (e) => {
-    // message.info('The year is ' + e.key);
-    props.update(e.key);
+  
+  const handleMenuClick = (value) => {
+    // message.info('The year is ' + value);
+    props.update(value);
   };
-
-  const menuProps = {
-    overlay: (
-      <Menu onClick={handleMenuClick}>
-      {seasons.map((season) => (
-        <Menu.Item key={season.year} icon={<UserOutlined />}>
-          {season.year}
-        </Menu.Item>
-      ))}
-      </Menu>
-    )
-  };
-
+  
   return (
-    <Dropdown {...menuProps} style={{ flex: 1, marginLeft: 10 }}>
-      <Button>
-        <Space>
-          Seasons
-          <DownOutlined />
-        </Space>
-      </Button>
-    </Dropdown>
-  )
+    <Select style={{ width: 120 }} onChange={handleMenuClick}>
+      {seasons.map((season) => (
+        <Option key={season.year} value={season.year}>
+          {season.year}
+        </Option>
+      ))}
+    </Select>
+  );
 }
 
 export default Dropdown1;

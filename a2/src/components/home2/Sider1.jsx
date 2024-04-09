@@ -1,6 +1,7 @@
 import Layout from 'antd/lib/layout';
-import { theme, Button, Space, List } from 'antd';
-const { Sider } = Layout;
+import { theme, Button, Space, List, Typography } from 'antd';
+const { Sider, Content } = Layout;
+const { Title } = Typography;
 
 const races = [
     {
@@ -67,7 +68,7 @@ const Sider1 = (props) => {
       } = theme.useToken();  
 
     return (
-        <Sider
+        <Content
             style={{
               background: colorBgContainer,
               borderRadius: borderRadiusLG,
@@ -75,40 +76,45 @@ const Sider1 = (props) => {
             width={500}
           >
 
-          <div className='text-2xl text-center py-5'>{props.update} Races</div>
+          <Title className='text-2xl text-center py-5' level={2} style={{display: 'flex', justifyContent: 'center'}}>
+            {props.update} Races
+          </Title>
 
-            <List
-              style={{
-                padding: '0 24px',
-                minHeight: 280,
-              }}
-              itemLayout="horizontal"
-              dataSource={races}
-              renderItem=
-              {item => (
-                <List.Item 
-                  style={{ 
-                    padding: '10px 0',
-                  }}
-                >
-                  <List.Item.Meta
-                    title={item.circuits.name}
-                  />
-
-                  <Space>
-                    <Button 
-                      type="primary" 
-                      size="small" 
-                      onClick={() => alert("Result")}>Results</Button>
-                    <Button 
-                      type="primary" 
-                      size="small" 
-                      onClick={() => alert("Standing")}>Standing</Button>
-                  </Space>
-                </List.Item>
-              )}
+          <List
+            style={{
+              padding: '0 24px',
+              minHeight: 280,
+            }}
+            itemLayout="horizontal"
+            dataSource={races}
+            renderItem={
+              item => (
+                  <List.Item 
+                    style={{ 
+                      padding: '10px 0',
+                    }}>
+                  <List.Item.Meta title={item.circuits.name}/>
+                    <Space>
+                      
+                      <Button 
+                        type="primary" 
+                        size="small" 
+                        onClick={() => alert("Result")}>
+                          Results
+                      </Button>
+                      
+                      <Button 
+                        type="primary" 
+                        size="small" 
+                        onClick={() => alert("Standing")}>
+                          Standing
+                      </Button>
+                    
+                    </Space>
+                  </List.Item>
+                )}
             />
-        </Sider>
+        </Content>
     )
 
 };

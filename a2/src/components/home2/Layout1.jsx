@@ -10,7 +10,6 @@ const Layout1 = () => {
 
   const updateYear = (id) => {
     setCurrentYear(id);
-    console.log(currentYear);
   }
 
   return (

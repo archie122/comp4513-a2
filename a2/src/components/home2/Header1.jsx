@@ -1,8 +1,8 @@
-import { Layout } from 'antd';
+import { Layout, Typography } from 'antd';
 const { Header } = Layout;
 import Dropdown1 from './Dropdown1';
 import Menu1 from './Menu1';
-
+const { Title } = Typography;
 
 
 const Header1 = (props) => {
@@ -11,9 +11,9 @@ const Header1 = (props) => {
       <Header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
           <Dropdown1 update={props.update}/>
 
-          <div style={{ padding: '24px' }} className='text-white text-3xl'>
+          <Title style={{ padding: '24px' }} className='text-white text-3xl'>
               F1 Dashboard Project
-          </div>
+          </Title>
 
           <Menu1 />
         
