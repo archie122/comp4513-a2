@@ -18,6 +18,7 @@ const MainContent = (props) => {
 
   const [open, setOpen] = useState([false, false]);
   const [races, setRaces] = useState([]);
+  const [standingsContent, setStandingsContent] = useState(<></>);
 
   async function selectRaces() {
     console.log('getting from supabase ... here to check if I’ve gone infinite');
@@ -33,6 +34,8 @@ const MainContent = (props) => {
   useEffect(() => {
     selectRaces();
   }, [currentSeasonSelected]);
+
+
 
   const raceData = races
     .map((race) => ({
@@ -59,27 +62,12 @@ const MainContent = (props) => {
         <p>URL</p>
       </>
     );
-    // const standingsDrawerContent = (
-    //   <>
-    //     <h1>After round: (selected SingleRace's round)</h1>
-    //     <p>Country</p>
-    //     <p>URL</p>
-    //   </>
-    // );
-    const standingsDrawerContent = (round) => (
-      <>
-        <Button type="primary">Add standings to favorites</Button>
-        <p>Round: {round}</p>
-        <p>Country</p>
-        <p>URL</p>
-      </>
-    );
+
     
 
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
-
 
   console.log('CURRENT YEAR: ' + "[" + currentSeasonSelected + "]");
   console.log('race data: ' + raceData);
@@ -97,7 +85,7 @@ const MainContent = (props) => {
         {props.update} Races
       </Title>
 
-      <RaceList raceData={raceData} toggleDrawer={toggleDrawer} />
+      <RaceList raceData={raceData} toggleDrawer={toggleDrawer} setStandingsContent={setStandingsContent} />
 
       <InfoDrawer
         title="Results"
@@ -107,7 +95,7 @@ const MainContent = (props) => {
       />
       <InfoDrawer
         title="Standings"
-        content={standingsDrawerContent}
+        content={standingsContent}
         open={open[2]}
         closeDrawer={() => toggleDrawer(2, false)}
       />
