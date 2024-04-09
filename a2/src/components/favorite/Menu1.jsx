@@ -5,8 +5,8 @@ const Menu1 = () => {
 
     return (
         <Flex style={{gap: '10px'}}>
-            <Link to='/favorite'>
-                <Button>Favorite</Button>
+            <Link to='/home'>
+                <Button>Home</Button>
             </Link>
 
             <Link to='/about'>

@@ -111,6 +111,7 @@ const MainContent = (props) => {
         open={open[2]}
         closeDrawer={() => toggleDrawer(2, false)}
       />
+                
     </Content>
   )
 };
