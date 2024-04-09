@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Supabase from '../../utility/f1-supabase.js'; //utility folder in src
 import Layout from 'antd/lib/layout';
-import { theme, Button, Space, List, Typography } from 'antd';
+import { theme, Button, Space, List, Typography, Flex } from 'antd';
 const { Content } = Layout;
 const { Title } = Typography;
 
@@ -57,21 +57,63 @@ const MainContent = (props) => {
     };  
     const resultsDrawerContent = (
       <>
-        <p>Name</p>
-        <p>Country</p>
-        <p>URL</p>
+        <Title style={{textAlign: 'center'}}>Results</Title>
+        <Flex style={{ flexDirection: 'row' }}>
+                <Content style={{padding: '24px 0', minHeight: 280, justifyContent: 'center', alignItems: 'center' }}>
+                    <Title style={{textAlign: 'center'}}>Qualifying</Title>
+                    <Content width={500}>
+                        <List />
+                    </Content>
+                </Content>
+                
+                <Content style={{padding: '24px 0', minHeight: 280, justifyContent: 'center', alignItems: 'center'}}>
+                    <Title style={{textAlign: 'center'}}>Results</Title>
+                    <Content width={500}>
+                        <List />
+                    </Content>
+                </Content>
+          </Flex>
       </>
     );
-
     
+    // const standingsDrawerContent = (round) => (
+    //   <>
+    //     <Button type="primary">Add standings to favorites</Button>
+    //     <p>Round: {round}</p>
+    //     <p>Country</p>
+    //     <p>URL</p>
+    //   </>
+    // );
+    
+    const standingsDrawerContent = (
+      <>
+        {/* <Button type="primary">Add standings to favorites</Button> */}
+        <Title style={{textAlign: 'center'}}>Standings</Title>
+        <Flex style={{ flexDirection: 'row' }}>
+                <Content style={{padding: '24px 0', minHeight: 280, justifyContent: 'center', alignItems: 'center' }}>
+                    <Title style={{textAlign: 'center'}}>Drivers</Title>
+                    <Content width={500}>
+                        <List />
+                    </Content>
+                </Content>
+                
+                <Content style={{padding: '24px 0', minHeight: 280, justifyContent: 'center', alignItems: 'center'}}>
+                    <Title style={{textAlign: 'center'}}>Constructors</Title>
+                    <Content width={500}>
+                        <List />
+                    </Content>
+                </Content>
+        </Flex>
+      </>
+    );
 
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
 
-  console.log('CURRENT YEAR: ' + "[" + currentSeasonSelected + "]");
-  console.log('race data: ' + raceData);
-  console.log('race data count:', raceData.length);
+  // console.log('CURRENT YEAR: ' + "[" + currentSeasonSelected + "]");
+  // console.log('race data: ' + raceData);
+  // console.log('race data count:', raceData.length);
 
   return (
     <Content
@@ -85,7 +127,7 @@ const MainContent = (props) => {
         {props.update} Races
       </Title>
 
-      <RaceList raceData={raceData} toggleDrawer={toggleDrawer} setStandingsContent={setStandingsContent} />
+      <RaceList raceData={raceData} toggleDrawer={toggleDrawer} setStandingsContent={setStandingsContent} getFav={props.getFav}/>
 
       <InfoDrawer
         title="Results"

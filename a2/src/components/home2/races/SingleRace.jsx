@@ -71,11 +71,14 @@
 
 // // export default SingleRace;
 
-import { Button, List, Space } from 'antd';
+import { Button, List, Space, Typography, Flex} from 'antd';
+import Layout from 'antd/lib/layout';
 import { useEffect, useState } from 'react';
 import Supabase from '../../../utility/f1-supabase.js'; //utility folder in src
+const { Title } = Typography;
+const { Content } = Layout;
 
-const SingleRace = ({ race, toggleDrawer, setStandingsContent }) => {
+const SingleRace = ({ race, toggleDrawer, setStandingsContent, getFav }) => {
     const [driverStandings, setDriverStandings] = useState([]);
     async function selectDriverStandings() {
         console.log('getting from supabase ... here to check if I’ve gone infinite');
@@ -133,32 +136,45 @@ const SingleRace = ({ race, toggleDrawer, setStandingsContent }) => {
           wins: constructorStanding.wins,
         }));
 
+        const standingsDrawerContent = (
+            <>
+              {/* <Button type="primary">Add standings to favorites</Button> */}
+              <Title style={{textAlign: 'center'}}>Standings</Title>
+              <h3>After round: {race.round}</h3>
+              <Flex style={{ flexDirection: 'row' }}>
+                      <Content style={{padding: '24px 0', minHeight: 280, justifyContent: 'center', alignItems: 'center' }}>
+                          <Title style={{textAlign: 'center'}}>Drivers</Title>
+                          <Content width={500}>
+                          <List
+                                dataSource={driverStandingsData}
+                                renderItem={(driverStanding) => (
+                                <List.Item>
+                                    <List.Item.Meta title={`driverId: ${driverStanding.driverId}`} 
+                                                    description={`Points: ${driverStanding.points}` + ` | Wins: ${driverStanding.wins}`} />
+                                </List.Item>
+                                )}
+                            />
+                          </Content>
+                      </Content>
+                      
+                      <Content style={{padding: '24px 0', minHeight: 280, justifyContent: 'center', alignItems: 'center'}}>
+                          <Title style={{textAlign: 'center'}}>Constructors</Title>
+                          <Content width={500}>
+                          <List
+                                dataSource={constructorStandingsData}
+                                renderItem={(constructorStanding) => (
+                                <List.Item>
+                                    <List.Item.Meta title={`constructorId: ${constructorStanding.constructorId}`} 
+                                                    description={`Points: ${constructorStanding.points}` + ` | Wins: ${constructorStanding.wins}`} />
+                                </List.Item>
+                                )}
+                            />
+                          </Content>
+                      </Content>
+              </Flex>
+            </>
+          );
 
-    const standingsDrawerContent = (
-        <>
-        <h3>After round: {race.round}</h3>
-        <h2>Drivers</h2>
-        <List
-            dataSource={driverStandingsData}
-            renderItem={(driverStanding) => (
-            <List.Item>
-                <List.Item.Meta title={`driverId: ${driverStanding.driverId}`} 
-                                description={`Points: ${driverStanding.points}` + ` | Wins: ${driverStanding.wins}`} />
-            </List.Item>
-            )}
-        />
-        <h2>Constructors</h2>
-        <List
-            dataSource={constructorStandingsData}
-            renderItem={(constructorStanding) => (
-            <List.Item>
-                <List.Item.Meta title={`constructorId: ${constructorStanding.constructorId}`} 
-                                description={`Points: ${constructorStanding.points}` + ` | Wins: ${constructorStanding.wins}`} />
-            </List.Item>
-            )}
-        />
-        </>
-    );
 
 
 // console.log('RACE ID: '+race.key);
@@ -171,14 +187,16 @@ console.log('DRIVER STANDINGS length' + driverStandings.length)
       <Space>
         <Button
           type="primary"
-          size="small"
+          size="big"
+          shape="round"
           onClick={() => toggleDrawer(1, true)}
         >
           Results
         </Button>
         <Button
           type="primary"
-          size="small"
+          size="big"
+          shape="round"
           onClick={() => {
             toggleDrawer(2, true);
             setStandingsContent(standingsDrawerContent);

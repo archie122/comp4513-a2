@@ -13,13 +13,21 @@ import { Routes, Route } from 'react-router-dom';
 
 function App() {
 
+  const [fav, setFav] = useState([]);
+
+  const getFav = (info) => {
+    console.log(info);
+    fav.push(info);
+    setFav(fav);
+  }
+
   return (
     <main>
       <Routes>
         <Route path='/comp4513-a2' element={<Login />} />
-        <Route path='/home' element={<Layout1 />} />
+        <Route path='/home' element={<Layout1 getFav={getFav}/>} />
         <Route path='/about' element={<About />} />
-        <Route path='/favorite' element={<Favorite />} />
+        <Route path='/favorite' element={<Favorite getFav={fav}/>} />
       </Routes>
     </main>
   )

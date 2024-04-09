@@ -6,11 +6,12 @@ import Header1 from './Header1';
 const { Header, Content, Footer, Sider } = Layout;
 const { Title } = Typography;
 
-const Favorite = () => {
+const Favorite = (props) => {
     const {
         token: { colorBgContainer, borderRadiusLG },
       } = theme.useToken();
     
+
     return (
         <Layout>
         <Header1 />
@@ -40,21 +41,42 @@ const Favorite = () => {
                 <Content style={{padding: '24px 0', minHeight: 280, justifyContent: 'center', alignItems: 'center' }}>
                     <Title style={{textAlign: 'center'}}>Drivers</Title>
                     <Content width={500}>
-                        <List />
+                        <List 
+                            dataSource={props.getFav}
+                            renderItem={item => (
+                                <List.Item>
+                                    {item.name}
+                                </List.Item>
+                            )}
+                        />
                     </Content>
                 </Content>
                 
                 <Content style={{padding: '24px 0', minHeight: 280, justifyContent: 'center', alignItems: 'center'}}>
                     <Title style={{textAlign: 'center'}}>Constructors</Title>
                     <Content width={500}>
-                        <List />
+                        <List 
+                            dataSource={props.getFav}
+                            renderItem={item => (
+                                <List.Item>
+                                    {item.name}
+                                </List.Item>
+                            )}
+                        />
                     </Content>
                 </Content>
                 
                 <Content style={{padding: '24px 0', minHeight: 280, justifyContent: 'center', alignItems: 'center' }}>
                     <Title style={{textAlign: 'center'}}>Circuits</Title>
                     <Content width={500}>
-                        <List />
+                        <List 
+                            dataSource={props.getFav}
+                            renderItem={item => (
+                                <List.Item>
+                                    {item.name}
+                                </List.Item>
+                            )}
+                        />
                     </Content>
                 </Content>
             </Flex>

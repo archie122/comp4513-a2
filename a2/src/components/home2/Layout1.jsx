@@ -4,7 +4,7 @@ import Header1 from './Header1';
 import Content1 from './Content1';
 import { useState } from 'react';
 
-const Layout1 = () => {
+const Layout1 = (props) => {
     
   const [currentYear, setCurrentYear] = useState('');
 
@@ -12,12 +12,14 @@ const Layout1 = () => {
     setCurrentYear(id);
   }
 
+  
+
   return (
     <Layout>
 
       <Header1 update={updateYear}/>
 
-      <Content1 update={currentYear}/>
+      <Content1 update={currentYear} getFav={props.getFav}/>
 
       <Footer1 />
 
