@@ -11,7 +11,7 @@ const options = ['Favorite', 'About', 'Login'].map((key) => ({
 const Menu1 = () => {
 
     return (
-        <Flex>
+        <Flex style={{gap: '10px'}}>
             <Button>Favorite</Button>
             <Button>About</Button>
             <Button>Login</Button>

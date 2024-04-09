@@ -1,5 +1,5 @@
 import Layout from 'antd/lib/layout'; //Layout template used from Ant Design
-import Sider1 from './Sider1';
+import MainContent from './MainContent';
 import Content2 from './Content2';
 import { theme } from 'antd';
 const { Content } = Layout;
@@ -18,7 +18,7 @@ const Layout3 = (props) => {
           }}
         >
           
-          <Sider1 update={props.update}/>
+          <MainContent update={props.update}/>
           
           {/* <Content2 /> */}
           

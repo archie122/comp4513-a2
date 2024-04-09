@@ -92,7 +92,9 @@ const standingsDrawerContent = (
       }}
       width={500}
     >
-      <div className='text-2xl text-center py-5'>{currentSeasonSelected} Races</div>
+      <Title className='text-2xl text-center py-5' level={2} style={{display: 'flex', justifyContent: 'center'}}>
+            {props.update} Races
+      </Title>
 
 
       <List
@@ -110,9 +112,7 @@ const standingsDrawerContent = (
             }}
           >
 
-          <Title className='text-2xl text-center py-5' level={2} style={{display: 'flex', justifyContent: 'center'}}>
-            {props.update} Races
-          </Title>
+          
 
           <List.Item.Meta
               title={item.name}

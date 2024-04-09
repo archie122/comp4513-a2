@@ -11,7 +11,7 @@ const Header1 = (props) => {
       <Header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
           <Dropdown1 update={props.update}/>
 
-          <Title style={{ padding: '24px' }} className='text-white text-3xl'>
+          <Title style={{ padding: '24px', color: 'white' }} className='text-white text-3xl'>
               F1 Dashboard Project
           </Title>
 
