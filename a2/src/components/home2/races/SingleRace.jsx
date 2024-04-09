@@ -117,6 +117,8 @@ const SingleRace = ({ race, toggleDrawer, setStandingsContent, getFav }) => {
     <List.Item style={{ padding: '10px 0' }}>
       <List.Item.Meta title={race.name} />
       <Space>
+        <Button onClick={() => getFav(race)}>Favorite</Button>
+
         <Button
           type="primary"
           size="big"

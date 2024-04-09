@@ -14,7 +14,7 @@ const Favorite = (props) => {
 
     return (
         <Layout>
-        <Header1 />
+        <Header1 clearFav={props.clearFav}/>
         <Content
           style={{
             padding: '0 48px',

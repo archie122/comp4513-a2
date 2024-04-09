@@ -13,7 +13,7 @@ const Header1 = (props) => {
               F1 Dashboard Project
           </Title>
 
-          <Menu1 />
+          <Menu1 clearFav={props.clearFav}/>
         
       </Header>
     )

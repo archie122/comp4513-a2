@@ -17,9 +17,13 @@ function App() {
 
   const getFav = (info) => {
     console.log(info);
-    fav.push(info);
-    setFav(fav);
+    const newFav = [...fav, info];
+    setFav(newFav);
   }
+
+  const clearFavList = () => {
+    setFav([]);
+  };
 
   return (
     <main>
@@ -27,7 +31,7 @@ function App() {
         <Route path='/comp4513-a2' element={<Login />} />
         <Route path='/home' element={<Layout1 getFav={getFav}/>} />
         <Route path='/about' element={<About />} />
-        <Route path='/favorite' element={<Favorite getFav={fav}/>} />
+        <Route path='/favorite' element={<Favorite getFav={fav} clearFav={clearFavList}/>} />
       </Routes>
     </main>
   )
