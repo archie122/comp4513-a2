@@ -14,6 +14,7 @@ import InfoDrawer from './drawer/Drawer.jsx';
 const MainContent = (props) => {
 
   let currentSeasonSelected = props.update;
+  console.log("type of props update" + typeof currentSeasonSelected);
 
   const [open, setOpen] = useState([false, false]);
   const [races, setRaces] = useState([]);
@@ -76,6 +77,36 @@ const MainContent = (props) => {
       </>
     );
     
+    // const standingsDrawerContent = (round) => (
+    //   <>
+    //     <Button type="primary">Add standings to favorites</Button>
+    //     <p>Round: {round}</p>
+    //     <p>Country</p>
+    //     <p>URL</p>
+    //   </>
+    // );
+    
+    const standingsDrawerContent = (
+      <>
+        {/* <Button type="primary">Add standings to favorites</Button> */}
+        <Title style={{textAlign: 'center'}}>Standings</Title>
+        <Flex style={{ flexDirection: 'row' }}>
+                <Content style={{padding: '24px 0', minHeight: 280, justifyContent: 'center', alignItems: 'center' }}>
+                    <Title style={{textAlign: 'center'}}>Drivers</Title>
+                    <Content width={500}>
+                        <List />
+                    </Content>
+                </Content>
+                
+                <Content style={{padding: '24px 0', minHeight: 280, justifyContent: 'center', alignItems: 'center'}}>
+                    <Title style={{textAlign: 'center'}}>Constructors</Title>
+                    <Content width={500}>
+                        <List />
+                    </Content>
+                </Content>
+        </Flex>
+      </>
+    );
 
   const {
     token: { colorBgContainer, borderRadiusLG },

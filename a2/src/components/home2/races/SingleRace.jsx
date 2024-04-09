@@ -11,8 +11,7 @@ const SingleRace = ({ race, toggleDrawer, setStandingsContent, setResultsContent
         console.log('getting from supabase ... here to check if I’ve gone infinite');
         const { data, error } = await Supabase.from('driverStandings')
           .select('*')
-          .eq('raceId', race.key)
-          .order('position');
+          .eq('raceId', race.key);
         if (error) {
           console.error('Error fetching driver standings:', error);
           return;
@@ -42,8 +41,7 @@ const SingleRace = ({ race, toggleDrawer, setStandingsContent, setResultsContent
           console.log('getting from supabase ... here to check if I’ve gone infinite');
           const { data, error } = await Supabase.from('constructorStandings')
             .select('*')
-            .eq('raceId', race.key)
-            .order('position');
+            .eq('raceId', race.key);
           if (error) {
             console.error('Error fetching constructor standings:', error);
             return;
@@ -153,12 +151,10 @@ const SingleRace = ({ race, toggleDrawer, setStandingsContent, setResultsContent
                           <List
                                 dataSource={driverStandingsData}
                                 renderItem={(driverStanding) => (
-                                    <List.Item>
-                                        <List.Item.Meta
-                                            title={`Driver ID: ${driverStanding.driverId}`}
-                                            description={`Points: ${driverStanding.points} | Wins: ${driverStanding.wins}`}
-                                        />
-                                    </List.Item>
+                                <List.Item>
+                                    <List.Item.Meta title={`driverId: ${driverStanding.driverId}`} 
+                                                    description={`Points: ${driverStanding.points}` + ` | Wins: ${driverStanding.wins}`} />
+                                </List.Item>
                                 )}
                             />
                           </Content>
@@ -171,7 +167,7 @@ const SingleRace = ({ race, toggleDrawer, setStandingsContent, setResultsContent
                                 dataSource={constructorStandingsData}
                                 renderItem={(constructorStanding) => (
                                 <List.Item>
-                                    <List.Item.Meta title={`Constructor Id: ${constructorStanding.constructorId}`} 
+                                    <List.Item.Meta title={`constructorId: ${constructorStanding.constructorId}`} 
                                                     description={`Points: ${constructorStanding.points}` + ` | Wins: ${constructorStanding.wins}`} />
                                 </List.Item>
                                 )}
@@ -180,7 +176,7 @@ const SingleRace = ({ race, toggleDrawer, setStandingsContent, setResultsContent
                       </Content>
               </Flex>
             </>
-        );
+          );
 
           const resultsDrawerContent = (
             <>
