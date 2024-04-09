@@ -27,7 +27,7 @@ const toggleDrawer = (idx, target) => {
 
 const circuitDrawerContent = (
     <>
-        <Button type="primary">Add to favorites</Button>
+        <Button type="primary">Add circuit to favorites</Button>
         <p>Name</p>
         <p>Country</p>
         <p>URL</p>
@@ -35,7 +35,7 @@ const circuitDrawerContent = (
 );
 const resultsDrawerContent = (
     <>
-        <Button type="primary">Add to favorites</Button>
+        <Button type="primary">Add results to favorites</Button>
         <p>Name</p>
         <p>Country</p>
         <p>URL</p>
@@ -43,7 +43,7 @@ const resultsDrawerContent = (
 );
 const standingsDrawerContent = (
     <>
-        <Button type="primary">Add to favorites</Button>
+        <Button type="primary">Add standings to favorites</Button>
         <p>Name</p>
         <p>Country</p>
         <p>URL</p>
