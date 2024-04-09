@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 import { Button, List, Space, Typography, Flex} from 'antd';
 import Layout from 'antd/lib/layout';
 import { useEffect, useState } from 'react';
@@ -70,8 +66,6 @@ const SingleRace = ({ race, toggleDrawer, setStandingsContent, setResultsContent
         }));
 
 
-<<<<<<< Updated upstream
-=======
         //////////   
 
         const [results, setResults] = useState([]);
@@ -147,7 +141,6 @@ const SingleRace = ({ race, toggleDrawer, setStandingsContent, setResultsContent
         
         
         
->>>>>>> Stashed changes
         const standingsDrawerContent = (
             <>
               {/* <Button type="primary">Add standings to favorites</Button> */}
@@ -230,10 +223,7 @@ const SingleRace = ({ race, toggleDrawer, setStandingsContent, setResultsContent
 // console.log('RACE ID: '+race.key);
 // console.log('DRIVER STANDINGS' + driverStandings)
 // console.log('DRIVER STANDINGS length' + driverStandings.length)
-<<<<<<< Updated upstream
-=======
 // console.log(resultsData)
->>>>>>> Stashed changes
 
   return (
     <List.Item style={{ padding: '10px 0' }}>
@@ -248,10 +238,7 @@ const SingleRace = ({ race, toggleDrawer, setStandingsContent, setResultsContent
           onClick={() => {
             toggleDrawer(1, true);
             setResultsContent(resultsDrawerContent);
-<<<<<<< Updated upstream
-=======
           
->>>>>>> Stashed changes
           }}
         >
           Results
