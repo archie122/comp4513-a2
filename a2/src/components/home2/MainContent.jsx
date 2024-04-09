@@ -139,18 +139,22 @@ const standingsDrawerContent = (
                     open={open[0]}
                     closeDrawer={() => toggleDrawer(0, false)}
                 />
+                
                 <InfoDrawer
                     title="Results"
                     content={resultsDrawerContent}
                     open={open[1]}
                     closeDrawer={() => toggleDrawer(1, false)}
+                    width={500}
                 />
+                
                 <InfoDrawer
                     title="Standings"
                     content={standingsDrawerContent}
                     open={open[2]}
                     closeDrawer={() => toggleDrawer(2, false)}
                 />
+                
     </Content>
     )
 

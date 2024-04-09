@@ -5,7 +5,7 @@ const Footer1 = () => {
 
     return (
         <Footer style={{ textAlign: 'center'}}>
-            ©{new Date().getFullYear()} Created by Jon Maquio and Archit Choudhary
+            ©{new Date().getFullYear()} Created by <a href='https://github.com/jonmaquio'>Jon Maquio</a> and <a href='https://github.com/ArchitChoudhary'>Archit Choudhary</a>
         </Footer>
     )
 }
