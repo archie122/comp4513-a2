@@ -17,9 +17,13 @@ function App() {
 
   const getFav = (info) => {
     console.log(info);
-    fav.push(info);
-    setFav(fav);
+    const newFav = [...fav, info];
+    setFav(newFav);
   }
+
+  const clearFavList = () => {
+    setFav([]);
+  };
 
   return (
     <main>
