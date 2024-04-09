@@ -1,4 +1,4 @@
-import { Dropdown, Button, Space, Menu, message } from 'antd';
+import { Dropdown, Button, Space, Menu, message } from 'antd'; //Dropdown template from Ant Design
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import Supabase from '../../utility/f1-supabase.js'; //utility folder in src
 import { useEffect, useState } from 'react'; 
@@ -7,11 +7,9 @@ import { useEffect, useState } from 'react';
 const Dropdown1 = (props) => {
 
   const [seasons, setSeasons] = useState([]);
-  useEffect(() => {
-    selectSeasons();
-  }, []);
 
   async function selectSeasons() {
+    
     console.log('getting from supabase ... here to check if I’ve gone infinite');
     const { data, error } = await Supabase.from('seasons').select('*');
     if (error) {
@@ -20,10 +18,27 @@ const Dropdown1 = (props) => {
     }
     setSeasons(data);
   }
+  
+  useEffect(() => {
+    selectSeasons();
+  }, []); // Empty dependency array ensures this effect runs only once
+
+  // const dropDownItems = seasons.map((item, index) => ({
+  //   key: `${index + 1}`,
+  //   label: (
+  //     <a target="_blank" rel="noopener noreferrer" href={`"${item.url}"`}>
+  //       {item.year} season
+  //     </a>
+  //   ),
+  // }));
+
+  
+
 
   const handleMenuClick = (e) => {
     // message.info('The year is ' + e.key);
     props.update(e.key);
+    console.log(seasons);
   };
 
   const menuProps = {
@@ -39,7 +54,7 @@ const Dropdown1 = (props) => {
   };
 
   return (
-    <Dropdown {...menuProps} style={{ flex: 1, marginLeft: 10 }}>
+    <Dropdown {...menuProps} style={{ flex: 1, marginLeft: 10 }} autoAdjustOverflow="true">
       <Button>
         <Space>
           Seasons
