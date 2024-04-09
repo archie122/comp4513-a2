@@ -19,7 +19,7 @@ const Layout1 = (props) => {
 
       <Header1 update={updateYear}/>
 
-      <Content1 update={currentYear} getFav={props.getFav}/>
+      <Content1 update={currentYear} getFav1={props.getFav1} getFav2={props.getFav2} getFav3={props.getFav3}/>
 
       <Footer1 />
 

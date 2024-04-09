@@ -15,7 +15,7 @@ const Content1 = (props) => {
         
         <div style={{ minHeight: 20 }} />
         
-        <Layout3 update={props.update} getFav={props.getFav}/>
+        <Layout3 update={props.update} getFav1={props.getFav1} getFav2={props.getFav2} getFav3={props.getFav3}/>
       
       </Content>
     )

@@ -42,12 +42,12 @@ const Favorite = (props) => {
                     <Title style={{textAlign: 'center'}}>Drivers</Title>
                     <Content width={500}>
                         <List 
-                            dataSource={props.getFav}
-                            renderItem={item => (
-                                <List.Item>
-                                    {item.name}
-                                </List.Item>
-                            )}
+                          dataSource={props.getFav1}
+                          renderItem={item => (
+                            <List.Item>
+                                {item}
+                            </List.Item>
+                          )}  
                         />
                     </Content>
                 </Content>
@@ -56,10 +56,10 @@ const Favorite = (props) => {
                     <Title style={{textAlign: 'center'}}>Constructors</Title>
                     <Content width={500}>
                         <List 
-                            dataSource={props.getFav}
+                            dataSource={props.getFav2}
                             renderItem={item => (
                                 <List.Item>
-                                    {item.name}
+                                    {item}
                                 </List.Item>
                             )}
                         />
@@ -70,10 +70,10 @@ const Favorite = (props) => {
                     <Title style={{textAlign: 'center'}}>Circuits</Title>
                     <Content width={500}>
                         <List 
-                            dataSource={props.getFav}
+                            dataSource={props.getFav3}
                             renderItem={item => (
                                 <List.Item>
-                                    {item.name}
+                                    {item}
                                 </List.Item>
                             )}
                         />

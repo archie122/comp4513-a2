@@ -48,6 +48,7 @@ const MainContent = (props) => {
       time: race.time,
       round: race.round,
       url: race.url,
+      // circuitName: race.circuit.name
     }));
 
     const toggleDrawer = (idx, target) => {
@@ -56,6 +57,8 @@ const MainContent = (props) => {
         return [...p];
       });
     };  
+    
+
     const resultsDrawerContent = (
       <>
         <Title style={{textAlign: 'center'}}>Results</Title>
@@ -76,15 +79,6 @@ const MainContent = (props) => {
           </Flex>
       </>
     );
-    
-    // const standingsDrawerContent = (round) => (
-    //   <>
-    //     <Button type="primary">Add standings to favorites</Button>
-    //     <p>Round: {round}</p>
-    //     <p>Country</p>
-    //     <p>URL</p>
-    //   </>
-    // );
     
     const standingsDrawerContent = (
       <>
@@ -128,7 +122,7 @@ const MainContent = (props) => {
         {props.update} Races
       </Title>
 
-      <RaceList raceData={raceData} toggleDrawer={toggleDrawer} setStandingsContent={setStandingsContent} setResultsContent={setResultsContent} getFav={props.getFav}/>
+      <RaceList raceData={raceData} toggleDrawer={toggleDrawer} setStandingsContent={setStandingsContent} setResultsContent={setResultsContent} getFav1={props.getFav1} getFav2={props.getFav2} getFav3={props.getFav3}/>
 
       <InfoDrawer
         title="Results"

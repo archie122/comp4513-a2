@@ -12,12 +12,12 @@ const Dropdown1 = (props) => {
   async function selectSeasons() {
     
     console.log('getting from supabase ... here to check if I’ve gone infinite');
-    const { data, error } = await Supabase.from('seasons').select('*');
+    const { data, error } = await Supabase.from('seasons').select('*').gte('year', 2000);
     if (error) {
       console.error('Error fetching seasons:', error);
       return;
     }
-    const sortedData = data.sort((a, b) => a.year + b.year);
+    const sortedData = data.sort((a, b) => a.year - b.year);
     setSeasons(sortedData);
   }
   

@@ -6,7 +6,9 @@ const Menu1 = (props) => {
     return (
         <Flex style={{gap: '10px'}}>
             <Flex style={{padding: '16px 0'}}>
-                <Button onClick={props.clearFav}>Clear Favorites</Button>
+                <Button onClick={ () => {
+                    props.clearFav();
+                }}>Clear Favorites</Button>
             </Flex>
             <Link to='/home'>
                 <Button>Home</Button>
