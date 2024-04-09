@@ -18,6 +18,7 @@ const MainContent = (props) => {
   const [open, setOpen] = useState([false, false]);
   const [races, setRaces] = useState([]);
   const [standingsContent, setStandingsContent] = useState(<></>);
+  const [results, setResultsContent] = useState(<></>);
 
   async function selectRaces() {
     console.log('getting from supabase ... here to check if I’ve gone infinite');
@@ -96,11 +97,11 @@ const MainContent = (props) => {
         {props.update} Races
       </Title>
 
-      <RaceList raceData={raceData} toggleDrawer={toggleDrawer} setStandingsContent={setStandingsContent} getFav={props.getFav}/>
+      <RaceList raceData={raceData} toggleDrawer={toggleDrawer} setStandingsContent={setStandingsContent} setResultsContent={setResultsContent} getFav={props.getFav}/>
 
       <InfoDrawer
         title="Results"
-        content={resultsDrawerContent}
+        content={results}
         open={open[1]}
         closeDrawer={() => toggleDrawer(1, false)}
       />

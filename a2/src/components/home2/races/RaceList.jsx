@@ -1,7 +1,7 @@
 import { List } from 'antd';
 import SingleRace from './SingleRace';
 
-const RaceList = ({ raceData, toggleDrawer, setStandingsContent, getFav  }) => (
+const RaceList = ({ raceData, toggleDrawer, setStandingsContent, getFav, setResultsContent  }) => (
   <List
     style={{
       padding: '0 24px',
@@ -10,7 +10,7 @@ const RaceList = ({ raceData, toggleDrawer, setStandingsContent, getFav  }) => (
     itemLayout="horizontal"
     dataSource={raceData}
     renderItem={(race) => (
-      <SingleRace race={race} toggleDrawer={toggleDrawer} setStandingsContent={setStandingsContent} getFav={getFav}/>
+      <SingleRace race={race} toggleDrawer={toggleDrawer} setStandingsContent={setStandingsContent} setResultsContent={setResultsContent} getFav={getFav}/>
     )}
   />
 );
