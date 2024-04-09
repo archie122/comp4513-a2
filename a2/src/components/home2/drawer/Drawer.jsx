@@ -2,8 +2,6 @@ import React from 'react';
 import { Drawer, Button } from 'antd';
 
 const InfoDrawer = ({ title, content, open, closeDrawer }) => {
-
-
   return (
     <Drawer
       title={title}
@@ -12,7 +10,6 @@ const InfoDrawer = ({ title, content, open, closeDrawer }) => {
       onClose={closeDrawer}
       open={open}
     >
-      <Button type="primary">Add to favorites</Button>
       {content}
     </Drawer>
   );
